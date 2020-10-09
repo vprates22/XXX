@@ -1,0 +1,54 @@
+---
+title: "novopacote"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{novopacote}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r include=FALSE}
+library("novopacote")
+```
+
+# Banco de dados
+
+## Covid
+
+Um banco de dados sobre covid
+
+```{r echo=TRUE}
+head(covid)
+```
+
+## b2010
+
+Um banco de dados sobre a populacao brasileira em 2010
+
+```{r echo=TRUE}
+head(b2010)
+```
+
+# Funcoes
+
+## normal
+
+testar se a media de uma amostra tem a mesma media de sua populcao  
+
+```{r echo=TRUE}
+a<-rnorm(50,10,3)
+normal(a,100,9,tipo = "menor")
+```
+```{r echo=TRUE}
+normal(a,100,9,tipo = "maior")
+```
+```{r echo=TRUE}
+normal(a,100,9,tipo = "diferente")
+```
+
+## life.table
+
+Usando a base de dados b2010 para montar uma tabela de mortalidade 
+
+```{r echo=TRUE}
+life.table(b2010$faixa.etaria,b2010$Pessoas.mortas,b2010$Pessoas.vivas)
+```
